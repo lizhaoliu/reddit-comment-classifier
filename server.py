@@ -3,7 +3,7 @@ import transformers as hf
 
 app = Flask(__name__)
 tokenizer = hf.AutoTokenizer.from_pretrained("distilbert-base-uncased")
-model = hf.AutoModelForSequenceClassification.from_pretrained("./model/checkpoint-56")
+model = hf.AutoModelForSequenceClassification.from_pretrained("./model/ckpt")
 pipeline = hf.pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
 tokenizer_kwargs = {"padding": "max_length", "truncation": True}
 
