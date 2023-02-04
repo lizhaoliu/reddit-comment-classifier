@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reddit Comment Sentiment Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (event) {
+                event.preventDefault();
+                var text = $('textarea[name="text"]').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ 'text': text }),
+                    success: function (response) {
+                        $('p').html('<br>Sentiment: <b>' + response.sentiment + '</b>, Score: ' + response.score);
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        textarea[name="text"] {
+            width: 500px;
+            height: 200px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Input Text Here</h1>
+    <form>
+        <textarea name="text"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <p></p>
+</body>
+
+</html>
