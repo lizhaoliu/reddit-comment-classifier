@@ -3,6 +3,10 @@
 ## Overview
 This is a machine learning model for determining the sentiment against Reddit comments on crypto.
 
+![alt text](./images/positive.png)
+
+![alt text](./images/negative.png)
+
 ## Model
 The sentiment classifier is fine-tuned based on a `distilbert` model. The training data and validation data are extracted from this [CSV file](https://gist.github.com/flotothemoon/e060935138f5686efae6911bce45e7b3). Train/validation split is 75/25.
 
